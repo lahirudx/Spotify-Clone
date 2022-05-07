@@ -1,12 +1,9 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
+import { TAlbum } from '../types';
 
 export type AlbumProps = {
-  album: {
-    id: string;
-    imageUri: string;
-    artistsHeadline: string;
-  }
+  album: TAlbum;
 }
 
 const Album = (props: AlbumProps) => {
@@ -22,14 +19,15 @@ export default Album
 
 const styles = StyleSheet.create({
   container: {
-    width: 200
+    width: 155,
+    margin: 10,
   },
   image: {
     width: '100%',
-    height: 200,
+    height: 155,
   },
   text: {
     color: 'grey',
-    marginTop: 10,
+    marginTop: 15,
   }
 })

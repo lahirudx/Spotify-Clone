@@ -1,20 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 import { RootTabScreenProps } from '../types';
 
-import Album from '../components/Album';
+import AlbumCategory from '../components/AlbumCategory';
 
-const album = {
-  id: '1',
-      imageUri: 'https://cache.boston.com/resize/bonzai-fba/Globe_Photo/2011/04/14/1302796985_4480/539w.jpg',
-      artistsHeadline: 'Taylor Swift, Kygo Objective C, Avicii'
-}
+import albumCategories from '../data/albumCategories';
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <Album album={album} />
+      <FlatList
+        data={albumCategories}
+        renderItem={({item}) => <AlbumCategory albumCategory={item} />}
+        keyExtractor={item => item.id}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 }
