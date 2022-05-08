@@ -52,6 +52,9 @@ export type TAlbum = {
   id: string;
   imageUri: string;
   artistsHeadline: string;
+  name: string;
+  by: string,
+  numberOfLikes: number,
 }
 
 

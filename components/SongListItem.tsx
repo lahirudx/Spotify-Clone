@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
     margin: 10
   },
   image: {
-    width: 75,
-    height: 75,
+    width: 60,
+    height: 60,
   },
   title: {
     color: '#fff',
-    fontSize: 18
+    fontSize: 16
   },
   artist: {
     color: '#999'
