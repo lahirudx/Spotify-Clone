@@ -1,17 +1,37 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
-import { TAlbum } from '../types';
+import { RootStackParamList, TAlbum } from '../types';
+import { useNavigation } from '@react-navigation/native';
 
 export type AlbumProps = {
   album: TAlbum;
 }
 
 const Album = (props: AlbumProps) => {
+
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate('Root',
+      {
+        screen: 'Home',
+        params: {
+          screen: 'Album',
+          params: {
+            id: props.album.id
+          }
+        }
+      }
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={{uri: props.album.imageUri}} />
-      <Text style={styles.text}>{props.album.artistsHeadline}</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={{ uri: props.album.imageUri }} />
+        <Text style={styles.text}>{props.album.artistsHeadline}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 

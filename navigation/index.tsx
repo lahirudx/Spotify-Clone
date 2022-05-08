@@ -16,8 +16,9 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import HomeScreen from '../screens/HomeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { HomeStackParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import AlbumScreen from '../screens/AlbumScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -64,9 +65,9 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeStackNavigator}
         options={{
-          title: 'Home',
+          headerShown: false,
           tabBarIcon: ({ color }) => <Entypo size={25} name="home" color={color} />,
         }}
       />
@@ -98,12 +99,21 @@ function BottomTabNavigator() {
   );
 }
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+const HomeStack = createNativeStackNavigator<HomeStackParamList>()
+
+function HomeStackNavigator() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name='HomeView'
+        component={HomeScreen}
+        options={{ headerTitle: 'Home' }}
+      />
+      <HomeStack.Screen
+        name='Album'
+        component={AlbumScreen}
+        options={{ headerTitle: 'Album' }}
+      />
+    </HomeStack.Navigator>
+  );
 }

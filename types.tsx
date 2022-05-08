@@ -25,10 +25,15 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  Home: undefined;
+  Home: NavigatorScreenParams<HomeStackParamList> | undefined;
   Search: undefined;
   Library: undefined;
   Premium: undefined;
+};
+
+export type HomeStackParamList = {
+  HomeView: undefined;
+  Album: { id: string };
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
@@ -42,6 +47,4 @@ export type TAlbum = {
   artistsHeadline: string;
 }
 
-export type TAlbumCategory = {
 
-}
