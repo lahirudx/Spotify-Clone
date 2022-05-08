@@ -19,6 +19,7 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import { HomeStackParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import AlbumScreen from '../screens/AlbumScreen';
+import PlayerWidget from '../components/PlayerWidget';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -58,6 +59,7 @@ function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
+    <>
     <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{
@@ -96,6 +98,8 @@ function BottomTabNavigator() {
         }}
       />
     </BottomTab.Navigator>
+    <PlayerWidget />
+    </>
   );
 }
 

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '700',
   },
   createrContainer: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   subTitles: {
     color: '#bbb',
-    margin: 5
+    marginHorizontal: 5
   },
   playButton: {
     backgroundColor: '#1cd05b',
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 40,
     justifyContent: 'center',
+    margin: 5
   },
   playButtonText: {
     color: '#fff',
